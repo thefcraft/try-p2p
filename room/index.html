@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebRTC Video Call</title>
+</head>
+<body>
+    <h1>WebRTC Video Call</h1>
+    <div id="videos">
+        <video class="video-player" id="user-1" autoplay playsinline></video>
+        <video class="video-player" id="user-2" autoplay playsinline></video>
+    </div>
+    <script>
+        window.onload = () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const room_id = urlParams.get('id');
+            if (room_id != null && room_id != ''){
+                console.log(room_id);
+                init(room_id);
+            } else window.location.href = '/';
+        };
+        
+    </script>
+    <script src="/static/room.js"></script>
+</body>
+</html>
