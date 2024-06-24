@@ -4,15 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* Basic body styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+/* Container styling */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styling */
+button {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Anchor link styling */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+    </style>
 </head>
 <body>
-    Home
-    <br>
-    <a href="/tryp2p/room">/room</a>
-    <br>
-    <a href="/tryp2p/room/index.html">/room/index.html</a>
-    <br>
-    <a href="/tryp2p/room/index.html?id=fac3998b-4eef-4732-8d17-b2312a685b92">/room/index.html?id=fac3998b-4eef-4732-8d17-b2312a685b92</a>
-    <br>
+    <div class="container">
+        <h1>Create a random room and share the url to someone.</h1>
+        <br>
+        <button id="randomRoomBtn">Join Random Room</button>
+    </div>
+    <script>
+        document.getElementById('randomRoomBtn').addEventListener('click', () => {
+            let uuid = self.crypto.randomUUID();
+            const url = `/tryp2p/room/index.html?id=${uuid}`;
+            window.location.href = url; // Redirect to the random room URL
+        });
+    </script>
 </body>
 </html>
